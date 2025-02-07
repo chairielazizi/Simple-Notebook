@@ -24,10 +24,6 @@ const db = mongoose
 // accept json request
 app.use(express.json());
 
-app.get("/notes", (req: Request, res: Response) => {
-  res.send("Server started!");
-});
-
-app.post("/notes", (req: Request, res: Response) => {
-  res.send("Server started!");
-});
+// routes
+import noteRouter from "../routes/Notes";
+app.use("/notes", noteRouter);

@@ -54,4 +54,32 @@ router.get(
   }
 );
 
+//DELETE one notebook
+router.delete(
+  "/books/:bookId/notes/:noteId",
+  async (request: Request, response: Response) => {
+    const bookId = request.params.bookId;
+    const noteId = request.params.noteId;
+    try {
+      const book = await Book.findById(bookId);
+      if (book) {
+        if (!book.notes) {
+          book.notes = [];
+        }
+        book.notes.splice(parseInt(noteId), 1);
+        await book.save();
+        response.json(book);
+      } else {
+        response.status(404).json({ message: "The note does not exist." });
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        response.status(500).json({ message: error.message });
+      } else {
+        response.status(500).json({ message: "An unknown error occurred" });
+      }
+    }
+  }
+);
+
 export default router;

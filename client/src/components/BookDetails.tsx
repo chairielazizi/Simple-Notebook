@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { createNote } from "../api/createNote";
 import { getOneBook } from "../api/getOneBook";
 import { Book } from "../api/getBooks";
+import { deleteNote } from "../api/deleteNote";
 
 function App() {
   const [book, setBook] = useState<Book | undefined>();
@@ -17,10 +18,12 @@ function App() {
     setNotes(serverNotes);
     setText("");
   }
-  // async function handleDelete(id: string) {
-  //   await deleteBook(id);
-  //   setBooks(books.filter((book) => book._id !== id));
-  // }
+
+  async function handleDeleteNote(noteId: number) {
+    if (!bookId) return;
+    await deleteNote(bookId, noteId);
+    setNotes([...notes].splice(noteId, 1));
+  }
 
   useEffect(() => {
     console.log("Note list mounted");
@@ -61,12 +64,12 @@ function App() {
       </form>
 
       <ul className="book-list">
-        {notes.map((note) => {
+        {notes.map((note, noteId) => {
           return (
             <li key={note}>
-              {/* <button onClick={() => handleDelete(book._id)}>
+              <button onClick={() => handleDeleteNote(noteId)}>
                 <i className="fa-solid fa-trash-can text-red-500"></i>
-              </button> */}
+              </button>
               {note}
             </li>
           );

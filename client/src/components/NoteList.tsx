@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CreateNote from "./CreateNote";
 
 interface Note {
   _id: string;
@@ -14,13 +15,14 @@ function App() {
     setNotes(notes.filter((note) => note._id !== id));
   }
 
+  async function fetchNote() {
+    const response = await fetch("http://localhost:3000/notes");
+    const noteList = await response.json();
+    setNotes(noteList);
+  }
   useEffect(() => {
     console.log("Note list mounted");
-    async function fetchNote() {
-      const response = await fetch("http://localhost:3000/notes");
-      const noteList = await response.json();
-      setNotes(noteList);
-    }
+
     fetchNote();
 
     return () => {
@@ -31,6 +33,8 @@ function App() {
 
   return (
     <div>
+      {/* Pass the callback function as a prop */}
+      <CreateNote onNoteAdded={fetchNote} />
       <ul className="note-list">
         {notes.map((note) => {
           return (

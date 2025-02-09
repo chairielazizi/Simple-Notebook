@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "../App.css";
 
-function App() {
+interface Props {
+  onNoteAdded: () => void;
+}
+function App({ onNoteAdded }: Props) {
   const [title, setTitle] = useState("");
 
   async function handleAddNote(e: React.FormEvent) {
@@ -18,7 +21,9 @@ function App() {
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
+
     setTitle("");
+    onNoteAdded(); // Call the callback function
   }
   return (
     <div className="App">
@@ -35,7 +40,10 @@ function App() {
           }}
           className="mt-1 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm bg-white"
         />
-        <button>Add Note</button>
+        <button>
+          <i className="fa-solid fa-plus mr-2"></i>
+          Add Note
+        </button>
       </form>
     </div>
   );

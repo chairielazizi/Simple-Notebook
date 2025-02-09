@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CreateNote from "./CreateNote";
+import { Link } from "react-router";
 
 interface Note {
   _id: string;
@@ -42,7 +43,7 @@ function App() {
               <button onClick={() => handleDelete(note._id)}>
                 <i className="fa-solid fa-trash-can text-red-500"></i>
               </button>
-              {note.title}
+              <Link to={`/notes/${note._id}`}>{note.title}</Link>
             </li>
           );
         })}

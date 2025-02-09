@@ -58,6 +58,7 @@ body{
 }
 
 .note-list li {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,4 +71,14 @@ body{
 .note-list li:hover {
   background: #ddd;
   cursor: pointer;
+}
+
+.note-list button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+}
+.note-list button:hover {
+  background: #fff;
 }

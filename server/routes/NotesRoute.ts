@@ -8,6 +8,7 @@ router.post(
   "/books/:bookId/notes",
   async (request: Request, response: Response, next: NextFunction) => {
     const bookId = request.params.bookId;
+    console.log(bookId);
     const book = await Book.findById(bookId);
     if (!book) {
       return next({ message: "Book not found", statusCode: 404 });

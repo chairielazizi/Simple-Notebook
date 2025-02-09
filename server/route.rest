@@ -29,5 +29,5 @@ POST http://localhost:3000/books/67a88766fa9f0f6e71d68361/notes
 Content-Type: application/json
 
 {
-    "note": "buat nota 001"
+    "note": "buat nota 002"
 }

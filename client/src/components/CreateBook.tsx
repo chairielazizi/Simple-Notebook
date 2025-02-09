@@ -18,7 +18,7 @@ function App({ onBookAdded }: Props) {
     <div className="App">
       <form onSubmit={handleAddBook}>
         <label htmlFor="book-title" className="text-3xl text-white">
-          Notes
+          NoteBooks
         </label>
         <input
           id="book-title"
@@ -31,7 +31,7 @@ function App({ onBookAdded }: Props) {
         />
         <button>
           <i className="fa-solid fa-plus mr-2"></i>
-          Add Note
+          Create NoteBook
         </button>
       </form>
     </div>

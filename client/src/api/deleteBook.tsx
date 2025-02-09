@@ -1,5 +1,7 @@
+import { API_URL } from "./config";
+
 export async function deleteBook(id: string) {
-  await fetch(`http://localhost:3000/books/${id}`, {
+  await fetch(`${API_URL}/books/${id}`, {
     method: "DELETE",
   });
 }

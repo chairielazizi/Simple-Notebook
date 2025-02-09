@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import { useParams } from "react-router";
 import { createNote } from "../api/createNote";
 import { getOneBook } from "../api/getOneBook";

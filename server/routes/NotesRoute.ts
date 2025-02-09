@@ -32,4 +32,26 @@ router.post(
   }
 );
 
+//GET all notes from one book
+router.get(
+  "/books/:bookId/notes",
+  async (request: Request, response: Response) => {
+    const bookId = request.params.bookId;
+    try {
+      const book = await Book.findById(bookId);
+      if (book) {
+        response.json(book.notes);
+      } else {
+        response.status(404).json({ message: "Book not found" });
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        response.status(500).json({ message: error.message });
+      } else {
+        response.status(500).json({ message: "An unknown error occurred" });
+      }
+    }
+  }
+);
+
 export default router;

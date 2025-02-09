@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { getBooks, Book } from "../api/getBooks";
-import { deleteBook } from "../api/deleteBook";
 import { useParams } from "react-router";
 import { createNote } from "../api/createNote";
+import { getOneBook } from "../api/getOneBook";
+import { Book } from "../api/getBooks";
 
 function App() {
-  // const [books, setBooks] = useState<Book[]>([]); //empty array
+  const [book, setBook] = useState<Book | undefined>();
+  const [notes, setNotes] = useState<string[]>([]); //empty array
   const [text, setText] = useState("");
   const { bookId } = useParams(); //get the bookId from the URL
 
   async function handleAddNote(e: React.FormEvent) {
     e.preventDefault();
-    const note = await createNote(bookId!, text);
-    // setBooks([...books, note]);
+    const { notes: serverNotes } = await createNote(bookId!, text);
+    setNotes(serverNotes);
     setText("");
   }
   // async function handleDelete(id: string) {
@@ -21,20 +22,22 @@ function App() {
   //   setBooks(books.filter((book) => book._id !== id));
   // }
 
-  // async function fetchBook() {
-  //   const bookList = await getBooks();
-  //   setBooks(bookList);
-  // }
   useEffect(() => {
-    console.log("Book list mounted");
+    console.log("Note list mounted");
+    if (!bookId) return;
+    async function fetchBook() {
+      const noteList = await getOneBook(bookId!);
+      setBook(noteList);
+      setNotes(noteList.notes);
+    }
 
-    // fetchBook();
+    fetchBook();
 
     return () => {
       //run after component is unmounted
       console.log("cleanup");
     };
-  }, []); // Add an empty dependency array to prevent infinite re-renders
+  }, [bookId]); // Add an empty dependency array to prevent infinite re-renders
 
   return (
     <div>
@@ -57,18 +60,18 @@ function App() {
         </button>
       </form>
 
-      {/* <ul className="book-list">
-        {books.map((book) => {
+      <ul className="book-list">
+        {notes.map((note) => {
           return (
-            <li key={book._id}>
-              <button onClick={() => handleDelete(book._id)}>
+            <li key={note}>
+              {/* <button onClick={() => handleDelete(book._id)}>
                 <i className="fa-solid fa-trash-can text-red-500"></i>
-              </button>
-              <Link to={`/books/${book._id}`}>{book.title}</Link>
+              </button> */}
+              {note}
             </li>
           );
         })}
-      </ul> */}
+      </ul>
     </div>
   );
 }

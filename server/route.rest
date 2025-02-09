@@ -23,3 +23,11 @@ Content-Type: application/json
 ###
 
 DELETE  http://localhost:3000/books/67a827f728e12838f656a399
+
+###
+POST http://localhost:3000/books/67a88766fa9f0f6e71d68361/notes
+Content-Type: application/json
+
+{
+    "note": "buat nota 001"
+}

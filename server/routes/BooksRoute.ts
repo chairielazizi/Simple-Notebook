@@ -3,7 +3,7 @@ import Book from "../models/Book";
 
 const router = express.Router();
 
-// GET all notes
+// GET all notebooks
 router.get("/", async (request: Request, response: Response) => {
   try {
     const books = await Book.find();
@@ -18,7 +18,7 @@ router.get("/", async (request: Request, response: Response) => {
   }
 });
 
-//POST a new note
+//POST - create a new notebooks
 router.post("/", async (request: Request, response: Response) => {
   const book = new Book(request.body);
   try {
@@ -33,12 +33,13 @@ router.post("/", async (request: Request, response: Response) => {
   }
 });
 
-// PATCH one note
+// PATCH one notebook
 router.patch("/:id", async (request: Request, response: Response) => {
   const id = request.params.id;
-  const book = new Book(request.body);
   try {
-    const updatedBook = await Book.findByIdAndUpdate(id, book, { new: true });
+    const updatedBook = await Book.findByIdAndUpdate(id, request.body, {
+      new: true,
+    });
     response.json(updatedBook);
   } catch (error: unknown) {
     if (error instanceof Error) {
@@ -49,7 +50,7 @@ router.patch("/:id", async (request: Request, response: Response) => {
   }
 });
 
-//DELETE one note
+//DELETE one notebook
 router.delete("/:id", async (request: Request, response: Response) => {
   console.log(request.params.id);
   try {
@@ -68,7 +69,7 @@ router.delete("/:id", async (request: Request, response: Response) => {
   }
 });
 
-//GET one note
+//GET one notebook
 router.get("/:id", async (request: Request, response: Response) => {
   try {
     const book = await Book.findById(request.params.id);

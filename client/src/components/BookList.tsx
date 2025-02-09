@@ -31,7 +31,7 @@ function App() {
     <div>
       {/* Pass the callback function as a prop */}
       <CreateBook onBookAdded={fetchBook} />
-      <ul className="note-list">
+      <ul className="book-list">
         {books.map((book) => {
           return (
             <li key={book._id}>

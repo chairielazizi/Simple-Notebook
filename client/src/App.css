@@ -47,7 +47,7 @@ body{
   color: #888;
 }
 
-.note-list {
+.book-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
@@ -57,7 +57,7 @@ body{
   color: #000;
 }
 
-.note-list li {
+.book-list li {
   position: relative;
   display: flex;
   justify-content: center;
@@ -68,17 +68,17 @@ body{
   border-radius:10px;
 }
 
-.note-list li:hover {
+.book-list li:hover {
   background: #ddd;
   cursor: pointer;
 }
 
-.note-list button {
+.book-list button {
   position: absolute;
   top: 5px;
-  right: 5px;
+  right: 5px;book
   background: none;
 }
-.note-list button:hover {
+.book-list button:hover {
   background: #fff;
 }

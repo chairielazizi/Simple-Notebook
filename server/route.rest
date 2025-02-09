@@ -2,7 +2,7 @@
 GET http://localhost:3000/notes
 
 ###
-GET http://localhost:3000/notes/679c0baa9301128095343c05
+GET http://localhost:3000/notes/67a5b70450df19d064ab2e98
 
 ###
 POST http://localhost:3000/notes
@@ -13,13 +13,13 @@ Content-Type: application/json
 }
 
 ###
-PATCH  http://localhost:3000/users/679c11035f6a07b6a0de0183
+PATCH  http://localhost:3000/notes/67a827f728e12838f656a399
 Content-Type: application/json
 
 {
-    "name": "John Wicked"
+    "title": "John Wicked"
 }
 
 ###
 
-DELETE  http://localhost:3000/users/679c0baa9301128095343c05
+DELETE  http://localhost:3000/notes/67a827f728e12838f656a399

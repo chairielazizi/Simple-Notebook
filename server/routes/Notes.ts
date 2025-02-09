@@ -51,6 +51,7 @@ router.patch("/:id", async (request: Request, response: Response) => {
 
 //DELETE one note
 router.delete("/:id", async (request: Request, response: Response) => {
+  console.log(request.params.id);
   try {
     const note = await Note.findByIdAndDelete(request.params.id);
     if (note) {

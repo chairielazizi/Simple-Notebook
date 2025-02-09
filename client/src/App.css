@@ -54,12 +54,20 @@ body{
   margin: 10px auto;
   width: 550px;
   grid-gap: 10px;
+  color: #000;
 }
 
 .note-list li {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 120px;
   background: #eee;
   border: 1px solid black;
   border-radius:10px;
+}
+
+.note-list li:hover {
+  background: #ddd;
+  cursor: pointer;
 }

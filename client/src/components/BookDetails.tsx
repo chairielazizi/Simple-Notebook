@@ -21,8 +21,8 @@ function App() {
 
   async function handleDeleteNote(noteId: number) {
     if (!bookId) return;
-    await deleteNote(bookId, noteId);
-    setNotes([...notes].splice(noteId, 1));
+    const newBook = await deleteNote(bookId, noteId);
+    setNotes(newBook.notes);
   }
 
   useEffect(() => {
@@ -66,7 +66,7 @@ function App() {
       <ul className="book-list">
         {notes.map((note, noteId) => {
           return (
-            <li key={note}>
+            <li key={noteId}>
               <button onClick={() => handleDeleteNote(noteId)}>
                 <i className="fa-solid fa-trash-can text-red-500"></i>
               </button>

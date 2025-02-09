@@ -35,5 +35,5 @@ app.use(
 app.use(express.json());
 
 // routes
-import noteRouter from "../routes/Notes";
-app.use("/notes", noteRouter);
+import bookRouter from "../routes/Books";
+app.use("/books", bookRouter);

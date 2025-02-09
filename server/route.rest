@@ -1,11 +1,11 @@
 ###
-GET http://localhost:3000/notes
+GET http://localhost:3000/books
 
 ###
-GET http://localhost:3000/notes/67a5b70450df19d064ab2e98
+GET http://localhost:3000/books/67a88777fa9f0f6e71d68367
 
 ###
-POST http://localhost:3000/notes
+POST http://localhost:3000/books
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH  http://localhost:3000/notes/67a827f728e12838f656a399
+PATCH  http://localhost:3000/books/67a88777fa9f0f6e71d68367
 Content-Type: application/json
 
 {
@@ -22,4 +22,4 @@ Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:3000/notes/67a827f728e12838f656a399
+DELETE  http://localhost:3000/books/67a827f728e12838f656a399

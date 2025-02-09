@@ -1,13 +1,13 @@
 import express, { Request, Response } from "express";
-import Note from "../models/Note";
+import Book from "../models/Book";
 
 const router = express.Router();
 
 // GET all notes
 router.get("/", async (request: Request, response: Response) => {
   try {
-    const notes = await Note.find();
-    response.json(notes);
+    const books = await Book.find();
+    response.json(books);
   } catch (error: unknown) {
     if (error instanceof Error) {
       response.status(500).json({ message: error.message });
@@ -20,10 +20,10 @@ router.get("/", async (request: Request, response: Response) => {
 
 //POST a new note
 router.post("/", async (request: Request, response: Response) => {
-  const note = new Note(request.body);
+  const book = new Book(request.body);
   try {
-    const newNote = await note.save();
-    response.status(201).json(newNote);
+    const newBook = await book.save();
+    response.status(201).json(newBook);
   } catch (error: unknown) {
     if (error instanceof Error) {
       response.status(500).json({ message: error.message });
@@ -36,10 +36,10 @@ router.post("/", async (request: Request, response: Response) => {
 // PATCH one note
 router.patch("/:id", async (request: Request, response: Response) => {
   const id = request.params.id;
-  const note = new Note(request.body);
+  const book = new Book(request.body);
   try {
-    const updatedNote = await Note.findByIdAndUpdate(id, note, { new: true });
-    response.json(updatedNote);
+    const updatedBook = await Book.findByIdAndUpdate(id, book, { new: true });
+    response.json(updatedBook);
   } catch (error: unknown) {
     if (error instanceof Error) {
       response.status(500).json({ message: error.message });
@@ -53,11 +53,11 @@ router.patch("/:id", async (request: Request, response: Response) => {
 router.delete("/:id", async (request: Request, response: Response) => {
   console.log(request.params.id);
   try {
-    const note = await Note.findByIdAndDelete(request.params.id);
-    if (note) {
-      response.json(note);
+    const book = await Book.findByIdAndDelete(request.params.id);
+    if (book) {
+      response.json(book);
     } else {
-      response.status(404).json({ message: "Note not found" });
+      response.status(404).json({ message: "Book not found" });
     }
   } catch (error: unknown) {
     if (error instanceof Error) {
@@ -71,11 +71,11 @@ router.delete("/:id", async (request: Request, response: Response) => {
 //GET one note
 router.get("/:id", async (request: Request, response: Response) => {
   try {
-    const note = await Note.findById(request.params.id);
-    if (note) {
-      response.json(note);
+    const book = await Book.findById(request.params.id);
+    if (book) {
+      response.json(book);
     } else {
-      response.status(404).json({ message: "Note not found" });
+      response.status(404).json({ message: "Book not found" });
     }
   } catch (error: unknown) {
     if (error instanceof Error) {

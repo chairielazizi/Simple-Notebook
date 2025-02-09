@@ -1,38 +1,27 @@
 import { useState } from "react";
 import "../App.css";
+import { createBook } from "../api/createBook";
 
 interface Props {
-  onNoteAdded: () => void;
+  onBookAdded: () => void;
 }
-function App({ onNoteAdded }: Props) {
+function App({ onBookAdded }: Props) {
   const [title, setTitle] = useState("");
 
-  async function handleAddNote(e: React.FormEvent) {
+  async function handleAddBook(e: React.FormEvent) {
     e.preventDefault();
-    await fetch("http://localhost:3000/notes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
-
+    await createBook(title);
     setTitle("");
-    onNoteAdded(); // Call the callback function
+    onBookAdded(); // Call the callback function
   }
   return (
     <div className="App">
-      <form onSubmit={handleAddNote}>
-        <label htmlFor="deck-title" className="text-3xl text-white">
+      <form onSubmit={handleAddBook}>
+        <label htmlFor="book-title" className="text-3xl text-white">
           Notes
         </label>
         <input
-          id="deck-title"
+          id="book-title"
           type="text"
           value={title}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

@@ -40,3 +40,5 @@ app.use("/books", bookRouter);
 
 import noteRouter from "../routes/NotesRoute";
 app.use("", noteRouter);
+
+export default app;

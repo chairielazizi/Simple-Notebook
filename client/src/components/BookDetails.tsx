@@ -43,25 +43,9 @@ function App() {
 
   return (
     <div>
-      <form onSubmit={handleAddNote}>
-        <label htmlFor="book-title" className="text-3xl text-white">
-          Notes
-        </label>
-        <input
-          id="book-title"
-          type="text"
-          value={text}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setText(e.target.value);
-          }}
-          className="mt-1 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm bg-white"
-        />
-        <button>
-          <i className="fa-solid fa-plus mr-2"></i>
-          Add Note
-        </button>
-      </form>
-
+      <h1 className="text-3xl text-white text-left font-semibold mb-10">
+        {book?.title}
+      </h1>
       <ul className="book-list">
         {notes.map((note, noteId) => {
           return (
@@ -74,6 +58,30 @@ function App() {
           );
         })}
       </ul>
+
+      <form onSubmit={handleAddNote}>
+        <label htmlFor="book-title" className="text-2xl text-white">
+          Note Title
+        </label>
+        <input
+          id="book-title"
+          type="text"
+          value={text}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setText(e.target.value);
+          }}
+          className="mt-1 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm bg-white h-8"
+        />
+        <div className="note-button">
+          <a href="/">
+            <i className="fa-solid fa-arrow-left mr-2 text-3xl text-white hover:cursor-pointer hover:text-blue-300"></i>
+          </a>
+          <button>
+            <i className="fa-solid fa-plus mr-2"></i>
+            Add Note
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

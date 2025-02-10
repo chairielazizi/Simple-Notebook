@@ -9,6 +9,7 @@
 
 body {
   background-color: #36454F;
+  /* background-image: url('~@/public/bg-1.jpg'); */
   /* background-image: url("https://images.pexels.com/photos/30611673/pexels-photo-30611673/free-photo-of-aerial-view-of-frozen-lake-patterns-in-minnesota.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");     */
   background-size: cover;
   background-position: center;
@@ -104,7 +105,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background-color: #333;
+  background-color: #fff;
   color: #fff;
   position: fixed;
   top: 0;

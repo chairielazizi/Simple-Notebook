@@ -6,6 +6,7 @@ const app = express();
 import mongoose from "mongoose";
 const PORT = 3000;
 import cors from "cors";
+import path from "path";
 
 const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) {
@@ -30,6 +31,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"], // allow these headers
   })
 );
+app.use(express.static(path.join(__dirname, "../build")));
 
 // accept json request
 app.use(express.json());
@@ -40,5 +42,3 @@ app.use("/books", bookRouter);
 
 import noteRouter from "../routes/NotesRoute";
 app.use("", noteRouter);
-
-export default app;

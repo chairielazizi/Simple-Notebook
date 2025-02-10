@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "dev": "ts-node-dev --pretty --respawn src/index.ts",
+    "start": "ts-node src/index.ts",
+    "prod": "NODE_ENV=production nodemon index.ts",
+    "dev": "ts-node-dev --pretty --respawn --transpile-only src/index.ts",
     "dev1": "ts-node src/index.ts",
     "dev2": "nodemon --watch src/** --ext 'ts,json' --exec ts-node src/index.ts",
     "build": "rimraf dist && tsc",

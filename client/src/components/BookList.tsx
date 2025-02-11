@@ -34,11 +34,22 @@ function App() {
       <ul className="book-list">
         {books.map((book) => {
           return (
-            <li key={book._id}>
-              <button onClick={() => handleDelete(book._id)}>
-                <i className="fa-solid fa-trash-can text-red-500"></i>
+            <li
+              key={book._id}
+              className="outline-none bg-white hover:bg-gray-100 border border-gray-200 hover:border-2 hover:border-green-600 rounded-lg"
+            >
+              <button
+                onClick={() => handleDelete(book._id)}
+                className="border py-2 px-4 border-gray-50 hover:border-red-700 hover:ring-red-700 outline-none cursor-pointer rounded-lg text-lg"
+              >
+                <i className="fa-solid fa-trash-can text-red-500 text-lg"></i>
               </button>
-              <Link to={`/books/${book._id}`}>{book.title}</Link>
+              <Link
+                to={`/books/${book._id}`}
+                className="text-2xl hover:text-green-400 hover:font-medium"
+              >
+                {book.title}
+              </Link>
             </li>
           );
         })}

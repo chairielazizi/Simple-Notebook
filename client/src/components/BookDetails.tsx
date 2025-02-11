@@ -42,18 +42,24 @@ function App() {
   }, [bookId]); // Add an empty dependency array to prevent infinite re-renders
 
   return (
-    <div>
+    <div className="sm-screen">
       <h1 className="text-3xl text-white text-left font-semibold mb-10">
         {book?.title}
       </h1>
       <ul className="book-list">
         {notes.map((note, noteId) => {
           return (
-            <li key={noteId}>
-              <button onClick={() => handleDeleteNote(noteId)}>
+            <li
+              key={noteId}
+              className="outline-none bg-white hover:bg-gray-100 border border-gray-200 hover:border-2 hover:border-blue-400 rounded-lg"
+            >
+              <button
+                onClick={() => handleDeleteNote(noteId)}
+                className="border py-2 px-4 border-gray-50 hover:border-red-700 hover:ring-red-700 outline-none cursor-pointer rounded-lg text-lg"
+              >
                 <i className="fa-solid fa-trash-can text-red-500"></i>
               </button>
-              {note}
+              <div className="font-medium text-xl">{note}</div>
             </li>
           );
         })}
@@ -70,13 +76,13 @@ function App() {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setText(e.target.value);
           }}
-          className="mt-1 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm bg-white h-8"
+          className="mt-1 mb-2 text-center block w-full rounded-md border border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 outline-none sm:text-lg bg-white h-8 text-3xl font-semibold"
         />
         <div className="note-button">
           <a href="/">
-            <i className="fa-solid fa-arrow-left mr-2 text-3xl text-white hover:cursor-pointer hover:text-blue-300"></i>
+            <i className="fa-solid fa-arrow-left mr-2 text-3xl text-white hover:cursor-pointer hover:text-green-400 hover:shadow-xl"></i>
           </a>
-          <button>
+          <button className="text-lg text-black rounded-lg px-3 py-1 border-2 border-slate-900 font-medium cursor-pointer hover:shadow-2xl hover:text-xl hover:text-green-800">
             <i className="fa-solid fa-plus mr-2"></i>
             Add Note
           </button>

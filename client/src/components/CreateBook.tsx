@@ -30,9 +30,9 @@ function App({ onBookAdded }: Props) {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setTitle(e.target.value);
           }}
-          className="mt-1 mb-2 text-center block w-full rounded-md border border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 outline-none sm:text-lg bg-white h-8 text-3xl font-semibold"
+          className="mt-1 mb-2 text-center block w-full rounded-md border border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 outline-none sm:text-lg bg-white h-8 text-3xl font-semibold text-slate-900 sm-screen-input"
         />
-        <button className="text-lg rounded-lg px-3 py-1 border-1 text-black border-slate-900 font-medium cursor-pointer hover:shadow-2xl  hover:text-xl hover:text-green-900">
+        <button className="text-lg rounded-lg px-3 py-1 border-1 text-black dark:bg-white border-slate-900 font-medium cursor-pointer hover:shadow-2xl  hover:text-xl hover:text-green-900">
           <i className="fa-solid fa-plus mr-2"></i>
           Create NoteBook
         </button>

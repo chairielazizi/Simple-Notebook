@@ -1,7 +1,7 @@
 #root:not(.header) {
   /* max-width: 1280px; */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -47,4 +47,21 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* For small screens (mobile phones) */
+@media only screen and (max-width: 600px) {
+  #root {
+    margin: 0 0;
+    padding: 0;
+  }
+  
+}
+
+/* For medium screens (tablets) */
+@media only screen and (max-width: 768px) {
+  #root {
+    margin: 0 0;
+    padding: 0;
+  }
 }

@@ -51,7 +51,7 @@ function App() {
           return (
             <li
               key={noteId}
-              className="outline-none bg-white hover:bg-gray-100 border border-gray-200 hover:border-2 hover:border-blue-400 rounded-lg"
+              className="px-2 outline-none bg-white hover:bg-gray-100 border border-gray-200 hover:border-2 hover:border-blue-400 rounded-lg"
             >
               <button
                 onClick={() => handleDeleteNote(noteId)}
@@ -59,7 +59,7 @@ function App() {
               >
                 <i className="fa-solid fa-trash-can text-red-500"></i>
               </button>
-              <div className="font-medium text-xl">{note}</div>
+              <div className="font-medium text-xl sm-screen-list">{note}</div>
             </li>
           );
         })}
@@ -76,13 +76,13 @@ function App() {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setText(e.target.value);
           }}
-          className="mt-1 mb-2 text-center block w-full rounded-md border border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 outline-none sm:text-lg bg-white h-8 text-3xl font-semibold"
+          className="mt-1 mb-2 text-center block w-full rounded-md border border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 outline-none sm:text-lg bg-white h-8 text-3xl font-semibold text-slate-900 sm-screen-input"
         />
         <div className="note-button">
           <a href="/">
             <i className="fa-solid fa-arrow-left mr-2 text-3xl text-white hover:cursor-pointer hover:text-green-400 hover:shadow-xl"></i>
           </a>
-          <button className="text-lg text-black rounded-lg px-3 py-1 border-2 border-slate-900 font-medium cursor-pointer hover:shadow-2xl hover:text-xl hover:text-green-800">
+          <button className="text-lg text-black dark:bg-white rounded-lg px-3 py-1 border-2 border-slate-900 font-medium cursor-pointer hover:shadow-2xl hover:text-xl hover:text-green-800">
             <i className="fa-solid fa-plus mr-2"></i>
             Add Note
           </button>

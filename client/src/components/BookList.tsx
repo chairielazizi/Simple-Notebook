@@ -46,7 +46,7 @@ function App() {
               </button>
               <Link
                 to={`/books/${book._id}`}
-                className="text-2xl hover:text-green-400 hover:font-medium"
+                className="text-2xl hover:text-green-400 hover:font-medium sm-screen-list"
               >
                 {book.title}
               </Link>

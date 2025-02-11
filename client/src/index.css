@@ -45,6 +45,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: Kanit;
 }
 
 h1 {
@@ -161,6 +162,8 @@ button:focus-visible {
 @media only screen and (max-width: 600px) {
   .sm-screen {
     text-align: center;
+    padding: 0;
+    margin: 0 0;
   }
   body {
     background-size: cover;
@@ -178,9 +181,20 @@ button:focus-visible {
   .book-list {
     width: 100%;
   }
+  .book-list li{
+    height: 120px;
+    font-size: 20px;
+  }
+  .sm-screen-list{
+    font-size: 20px;
+  }
   .header-text {
     font-size: 18px;
     margin-right: 10rem;
+  }
+  .sm-screen-input{
+    font-size: 24px;
+    font-weight: semibold;
   }
 
 }
@@ -189,6 +203,8 @@ button:focus-visible {
 @media only screen and (max-width: 768px) {
   .sm-screen {
     text-align: center;
+    padding: 0;
+    margin: 0 0;
   }
   body {
     background-size: cover;
@@ -205,6 +221,17 @@ button:focus-visible {
   }
   .book-list {
     width: 100%;
+  }
+  .book-list li{
+    height: 120px;
+    font-size: 20px;
+  }
+  .sm-screen-list{
+    font-size: 18px;
+  }
+  .sm-screen-input{
+    font-size: 24px;
+    font-weight: semibold;
   }
 }
 
